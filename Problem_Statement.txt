@@ -1,0 +1,39 @@
+A company provides connectivity services to airline customers, ensuring aircraft are equipped with essential communication and operational systems such as satellite modems, avionics systems, and radars. Each aircraft is associated with a specific airline and requires routine servicing, updates, and maintenance. Due to operational demands, services may need to be transferred between aircraft in cases like fleet reallocation, emergency situations, or technological upgrades.
+ 
+Requirement
+Develop a procedure to implement the logic for transferring a service from one aircraft to another.
+
+1.Accept Parameters
+
+Input parameters should include the source aircraft ID, destination aircraft ID, and service ID to be transferred.
+
+2.Validate Transfer Conditions
+
+Ensure both source and destination aircraft exist, and the service is currently active.
+A service cannot be transferred if its activation status is ‘In Progress.’
+The source and destination aircraft must belong to the same airline.
+The destination aircraft must have a compatible hardware asset for the service; if unavailable, it should be automatically assigned.
+
+3.Maintain Transaction Integrity
+
+Ensure data consistency and rollback in case of failure.
+
+4.Audit Logging & Exception Handling
+
+Record service transfer details and maintain an audit history.
+Exceptions should be managed within the procedure in a graceful manner.
+
+5.Write queries for below scenarios
+
+Identify the top five aircraft that received the highest number of service transfers in the past year.
+List all aircraft that had multiple service transfers within the same 30-day period.
+ 
+Schema Structure
+
+Customer Table: customer_id, name, contact_person, email, phone, address
+Aircraft Table: aircraft_id, customer_id, model, registration_number, manufacture_date
+Assets Table: asset_id, aircraft_id, asset_type, serial_number, installed_date
+Services Table: service_id, aircraft_id, asset_id, service_type, service_date, status
+
+
+
